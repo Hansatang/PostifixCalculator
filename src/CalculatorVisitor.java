@@ -27,18 +27,18 @@ public class CalculatorVisitor implements Visitor, Calculator {
         Operand opr1 = (Operand) tokenStack.pop();
         Operand opr2 = (Operand) tokenStack.pop();
 
-        switch (operator.getOperation()){
+        switch (operator.getOperation()) {
             case Plus:
-                tokenStack.push(new Operand(opr2.getValue()+opr1.getValue()));
+                tokenStack.push(new Operand(opr2.getValue() + opr1.getValue()));
                 break;
             case Minus:
-                tokenStack.push(new Operand(opr2.getValue()-opr1.getValue()));
+                tokenStack.push(new Operand(opr2.getValue() - opr1.getValue()));
                 break;
             case Divide:
-                tokenStack.push(new Operand(opr2.getValue()/opr1.getValue()));
+                tokenStack.push(new Operand(opr2.getValue() / opr1.getValue()));
                 break;
             case Multiply:
-                tokenStack.push(new Operand(opr2.getValue()*opr1.getValue()));
+                tokenStack.push(new Operand(opr2.getValue() * opr1.getValue()));
                 break;
         }
     }
