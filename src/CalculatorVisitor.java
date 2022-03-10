@@ -24,24 +24,22 @@ public class CalculatorVisitor implements Visitor, Calculator {
     }
 
     private void performOperation(Operator operator) {
-        Operand t1 = (Operand) tokenStack.pop();
-        Operand t2 = (Operand) tokenStack.pop();
-        int res = 0;
-        switch (operator.getOperation()) {
+        Operand opr1 = (Operand) tokenStack.pop();
+        Operand opr2 = (Operand) tokenStack.pop();
+
+        switch (operator.getOperation()){
             case Plus:
-                res = t2.getValue() + t1.getValue();
+                tokenStack.push(new Operand(opr2.getValue()+opr1.getValue()));
                 break;
             case Minus:
-                res = t2.getValue() - t1.getValue();
-                break;
-            case Multiply:
-                res = t2.getValue() * t1.getValue();
+                tokenStack.push(new Operand(opr2.getValue()-opr1.getValue()));
                 break;
             case Divide:
-                res = t2.getValue() / t1.getValue();
+                tokenStack.push(new Operand(opr2.getValue()/opr1.getValue()));
+                break;
+            case Multiply:
+                tokenStack.push(new Operand(opr2.getValue()*opr1.getValue()));
                 break;
         }
-
-        tokenStack.push(new Operand(res));
     }
 }
