@@ -16,7 +16,6 @@ public class CalculatorVisitor implements Visitor, Calculator {
     @Override
     public void visit(Operator operator) {
         performOperation(operator);
-
     }
 
     private void pushOperand(Operand operand) {

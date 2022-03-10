@@ -4,18 +4,19 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class OperatorTest {
-    Operator operator;
+class OperandTest {
+
+    Operand operand;
 
     @BeforeEach
     void setUp() {
-        operator = new Operator(Operation.Plus);
+        operand = new Operand(15);
     }
 
     @Test
     @DisplayName("Testing Getter")
-    void testValue() {
-        assertEquals(Operation.Plus, operator.getOperation(),
+    void getValue() {
+        assertEquals(15, operand.getValue(),
                 "Getter should work");
     }
 
