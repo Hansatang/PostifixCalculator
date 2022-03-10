@@ -1,8 +1,20 @@
-public class Operand extends Token{
+public class Operand extends Token {
 
     private int value;
 
-    public int getValue(){
+    public Operand(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
         return 0;
-    };
+    }
+
+
+    @Override
+    public void accept(CalculatorVisitor visitor) {
+        visitor.visit(this);
+    }
+
+
 }

@@ -1,6 +1,6 @@
 public class CalculatorVisitor implements Visitor,Calculator {
 
-    private LinkedStack<Token> tokenStack ;
+    private LinkedStack<Token> tokenStack = new LinkedStack<>();
 
     @Override
     public int getResult() {
