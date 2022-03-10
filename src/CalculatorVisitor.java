@@ -4,16 +4,26 @@ public class CalculatorVisitor implements Visitor, Calculator {
 
     @Override
     public int getResult() {
-        return 0;
+        Operand result = (Operand) tokenStack.pop();
+        return result.getValue();
     }
 
     @Override
     public void visit(Operand operand) {
-        tokenStack.push(operand);
+        pushOperand(operand);
     }
 
     @Override
     public void visit(Operator operator) {
+        performOperation(operator);
+
+    }
+
+    private void pushOperand(Operand operand) {
+    }
+
+    private void performOperation(Operator operator) {
+
 
     }
 }

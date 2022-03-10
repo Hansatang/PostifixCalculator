@@ -25,11 +25,8 @@ public class LinkedList<T> implements List<T> {
     public T removeFirst() {
         if (head == null)
             return null;
-
-        // Move the head pointer to the next node
         Node<T> temp = head;
         head = head.getNext();
-
         return temp.getData();
     }
 }
