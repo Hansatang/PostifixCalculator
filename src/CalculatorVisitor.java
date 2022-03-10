@@ -1,4 +1,4 @@
-public class CalculatorVisitor implements Visitor,Calculator {
+public class CalculatorVisitor implements Visitor, Calculator {
 
     private LinkedStack<Token> tokenStack = new LinkedStack<>();
 
@@ -9,7 +9,7 @@ public class CalculatorVisitor implements Visitor,Calculator {
 
     @Override
     public void visit(Operand operand) {
-
+        tokenStack.push(operand);
     }
 
     @Override
