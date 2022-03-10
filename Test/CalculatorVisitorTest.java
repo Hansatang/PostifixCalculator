@@ -14,7 +14,7 @@ class CalculatorVisitorTest {
     }
 
     @Test
-    private void pushOperand() {
+    void pushOperand() {
         assertTrue(tokenStack.isEmpty());
         tokenStack.push(operand);
         assertFalse(tokenStack.isEmpty());

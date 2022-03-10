@@ -4,7 +4,7 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public boolean isEmpty() {
-        return head != null;
+        return head == null;
     }
 
     @Override
