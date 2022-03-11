@@ -4,20 +4,32 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorVisitorTest {
-    LinkedStack<Token> tokenStack;
-    Operand operand;
+
+    private CalculatorVisitor calculatorVisitor;
 
     @BeforeEach
     void setUp() {
-        tokenStack = new LinkedStack<>();
-        Operand operand = new Operand(11);
+        calculatorVisitor = new CalculatorVisitor();
     }
 
     @Test
-    void pushOperand() {
-        assertTrue(tokenStack.isEmpty());
-        tokenStack.push(operand);
-        assertFalse(tokenStack.isEmpty());
+    void getResult(){
+        assertThrows(NullPointerException.class , () ->{
+            calculatorVisitor.getResult();
+        });
+        calculatorVisitor.visit(new Operand(5));
+        calculatorVisitor.visit(new Operand(2));
+        calculatorVisitor.visit(new Operator(Operation.Plus));
+        assertEquals(7,calculatorVisitor.getResult());
+    }
+
+    @Test
+    void visit(){
+        calculatorVisitor.visit(new Operand(5));
+        calculatorVisitor.visit(new Operand(2));
+        calculatorVisitor.visit(new Operator(Operation.Plus));
+        assertEquals(7,calculatorVisitor.getResult());
+
     }
 
 }
