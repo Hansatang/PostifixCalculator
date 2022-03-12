@@ -18,9 +18,4 @@ class OperatorTest {
         assertEquals(Operation.Plus, operator.getOperation(),
                 "Getter should work");
     }
-
-
-    @Test
-    void accept() {
-    }
 }

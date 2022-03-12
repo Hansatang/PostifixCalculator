@@ -1,4 +1,5 @@
+import Exception.MalformedExpressionException;
 public interface Calculator {
 
-    int getResult();
+    int getResult() throws MalformedExpressionException;
 }

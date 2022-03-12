@@ -1,16 +1,18 @@
+import Exception.EmptyListExpression;
+import Stack.LinkedList;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LinkedListTest {
 
+public class LinkedListTest {
     private LinkedList<Token> linkedList;
 
     @BeforeEach
     void setUp() {
-        linkedList = new LinkedList<>();
+        linkedList = new LinkedList<Token>();
 
     }
 
@@ -20,6 +22,7 @@ public class LinkedListTest {
         linkedList.addToFront(new Operand(2));
         assertFalse(linkedList.isEmpty());
     }
+
 
     @Test
     void size(){
@@ -36,11 +39,17 @@ public class LinkedListTest {
     }
 
     @Test
-    void removeFirst(){
+    void removeFirst() throws EmptyListExpression {
         linkedList.addToFront(new Operand(2));
         assertFalse(linkedList.isEmpty());
         linkedList.removeFirst();
         assertTrue(linkedList.isEmpty());
+        Assertions.assertThrows(EmptyListExpression.class, ()->{linkedList.removeFirst();});
+    }
+
+    @Test
+    void removeFirstException() throws EmptyListExpression{
+        Assertions.assertThrows(EmptyListExpression.class, ()-> linkedList.removeFirst());
     }
 
 }

@@ -10,7 +10,6 @@ public class Operand extends Token {
         return value;
     }
 
-
     @Override
     public void accept(CalculatorVisitor visitor) {
         visitor.visit(this);

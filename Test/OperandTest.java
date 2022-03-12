@@ -19,9 +19,4 @@ class OperandTest {
         assertEquals(15, operand.getValue(),
                 "Getter should work");
     }
-
-
-    @Test
-    void accept() {
-    }
 }

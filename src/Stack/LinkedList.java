@@ -1,3 +1,6 @@
+package Stack;
+import Exception.EmptyListExpression;
+
 public class LinkedList<T> implements List<T> {
     private Node<T> head;
     private int size;
@@ -22,11 +25,14 @@ public class LinkedList<T> implements List<T> {
     }
 
     @Override
-    public T removeFirst() {
-        if (head == null)
-            return null;
+    public T removeFirst() throws EmptyListExpression {
+        if (isEmpty()) {
+            throw new EmptyListExpression("Empty Stack.List");
+        }
         Node<T> temp = head;
         head = head.getNext();
+        size--;
         return temp.getData();
+
     }
 }

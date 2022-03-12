@@ -1,7 +1,10 @@
 
+import Stack.LinkedStack;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.EmptyStackException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,7 +14,7 @@ public class LinkedStackTest {
     @BeforeEach
     void setUp()
     {
-        list=new LinkedStack<>();
+        list=new LinkedStack<Token>();
     }
 
     @Test
@@ -36,7 +39,11 @@ public class LinkedStackTest {
         assertFalse(list.isEmpty());
         list.pop();
         assertTrue(list.isEmpty());
+    }
 
+    @Test
+    void popException() throws EmptyStackException {
+        Assertions.assertThrows(EmptyStackException.class, ()-> list.pop());
     }
 
 }

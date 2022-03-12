@@ -1,8 +1,8 @@
+import Stack.Node;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NodeTest {
 
@@ -11,8 +11,8 @@ public class NodeTest {
 
     @BeforeEach
     void setUp() {
-        node = new Node<>();
-    next=new Node<>();
+        node = new Node<Token>();
+        next = new Node<Token>();
 
     }
 
@@ -31,22 +31,21 @@ public class NodeTest {
     }
 
     @Test
-    void setNext()
-    {
+    void setNext() {
         node.setData(new Operand(3));
         next.setData(new Operand(1));
         assertEquals(((Operand) node.getData()).getValue(), 3);
         node.setNext(next);
-        assertEquals( node.getNext(), next);
+        assertEquals(node.getNext(), next);
     }
+
     @Test
-    void getNext()
-    {
+    void getNext() {
         node.setData(new Operand(3));
         next.setData(new Operand(1));
         assertEquals(((Operand) node.getData()).getValue(), 3);
         node.setNext(next);
-        assertEquals( node.getNext(), next);
+        assertEquals(node.getNext(), next);
     }
 
 

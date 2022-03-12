@@ -16,6 +16,5 @@ public class Main {
         list.add(op3);
         list.add(or2);
         System.out.println(client.evaluateExpression(list));
-
     }
 }
