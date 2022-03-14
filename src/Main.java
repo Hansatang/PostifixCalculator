@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import Exception.MalformedExpressionException;
 
 public class Main {
 
@@ -15,6 +16,10 @@ public class Main {
         list.add(or1);
         list.add(op3);
         list.add(or2);
-        System.out.println(client.evaluateExpression(list));
+        try {
+            System.out.println(client.evaluateExpression(list));
+        } catch (MalformedExpressionException e) {
+            e.printStackTrace();
+        }
     }
 }

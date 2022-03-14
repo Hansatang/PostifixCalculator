@@ -1,5 +1,5 @@
-import Stack.LinkedStack;
 import Exception.MalformedExpressionException;
+import Stack.LinkedStack;
 
 import java.util.EmptyStackException;
 
@@ -9,12 +9,15 @@ public class CalculatorVisitor implements Visitor, Calculator {
 
     @Override
     public int getResult() throws MalformedExpressionException {
-
         if (tokenStack.isEmpty()) {
-            throw new MalformedExpressionException("Broken Expression");
+            throw new MalformedExpressionException("Broken Expression: TokenStack empty before popping the Result");
         }
         Operand result = (Operand) tokenStack.pop();
-        return result.getValue();
+        if (!tokenStack.isEmpty()) {
+            throw new MalformedExpressionException("Broken Expression: TokenStack not empty after popping the Result");
+        } else {
+            return result.getValue();
+        }
     }
 
     @Override
@@ -55,7 +58,7 @@ public class CalculatorVisitor implements Visitor, Calculator {
             }
 
         } catch (EmptyStackException e) {
-            throw new MalformedExpressionException("Broken");
+            throw new MalformedExpressionException("Broken Expression: Missing operand to proceed with operation");
         }
     }
 }

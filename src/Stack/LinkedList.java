@@ -27,7 +27,7 @@ public class LinkedList<T> implements List<T> {
     @Override
     public T removeFirst() throws EmptyListExpression {
         if (isEmpty()) {
-            throw new EmptyListExpression("Empty Stack.List");
+            throw new EmptyListExpression("Empty List");
         }
         Node<T> temp = head;
         head = head.getNext();

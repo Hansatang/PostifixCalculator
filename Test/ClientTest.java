@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import Exception.MalformedExpressionException;
 
 class ClientTest {
 
@@ -31,7 +32,7 @@ class ClientTest {
     }
 
     @Test
-    void evaluateExpression() {
+    void evaluateExpression() throws MalformedExpressionException {
         Assertions.assertEquals(8,client.evaluateExpression(list),"Valid Solution");
     }
 }
